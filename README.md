@@ -24,3 +24,6 @@
     - Copy path and place in a brower url to view the report
     - Check your `token` and `token_bearer` are correct in case of any authorization error or failure
 - To run single test script: `npx mocha ./api_test/{script name}.js`
+
+## HTML report sample of the test run
+- ![](https://github.com/pathfindertimothy/graphql_api_testing/blob/main/mochawesome-report/mochawesome.html)
