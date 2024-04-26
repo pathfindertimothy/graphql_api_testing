@@ -1,5 +1,8 @@
-const token = 'BQY6y8mDwhwud2uBsJEynwZJ9wVfMC47';
-const bearer_token = 'Bearer ory_at_lVC8dqKts8FDLp5OLYWZEYVXolrwU8tyvk54hxR_rWk.hbbtKqo01rM7N12MBBr7ncvINX5pRAZYJC-llkjkjMs';
+// provide your token: remove the curly brace and provide token
+const token = '{provide token}';
+
+// provide your bearer_token: remove the curly brace and provide token
+const bearer_token = 'Bearer {provide bear_token}';
 
 const url = 'https://streaming.bitquery.io/graphql';
 const requestHeaders = {

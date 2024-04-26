@@ -1,4 +1,4 @@
 ./mochawesome-report/assets
-./mochawesome-report/mochawesome.html
-./mochawesome-report/mochawesome.json
+./mochawesome-report/*.html
+./mochawesome-report/*.json
 node_modules
