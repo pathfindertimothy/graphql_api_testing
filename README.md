@@ -26,5 +26,4 @@
 - To run single test script: `npx mocha ./api_test/{script name}.js`
 
 ## HTML report sample of the test run
-- ![](https://github.com/pathfindertimothy/graphql_api_testing/blob/main/mochawesome-report/mochawesome.html)
-- https://github.com/pathfindertimothy/graphql_api_testing/blob/main/mochawesome-report/mochawesome.html
+- https://htmlpreview.github.io/?https://github.com/pathfindertimothy/graphql_api_testing/blob/main/mochawesome-report/mochawesome.html
