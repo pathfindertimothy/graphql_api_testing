@@ -1,11 +1,12 @@
 # Description
-- This is a mocha testing framework for graphql api
+- This is a mocha testing framework for testing graphql api
 
 ## Folder structure
-- api_test: contains the test script files
-- auth_params: contains authorization and url parameters
-- data: contains payload data
-- mochaewsome-report: contains the report in html and json format for generated test report
+- `api_test`: contains the test script files
+- `auth_params`: contains authorization and url parameters
+- `data`: contains payload data
+- `mochaewsome-report`: contains the report in html and json format for generated test report
+- `video`: contains a recording of the test running and also showing an html report of the test
 
 ## Pre-requisite
 - System must have node.js and npm package installed
@@ -20,7 +21,7 @@
 
 ## To run:
 - To run all test scripts: `npx mocha ./api_test/*.js`
-    - This will generate a test report: mochawesome.html
-    - Copy path and place in a brower url to view the report
+    - This will generate a test report file: `mochawesome.html`
+    - Copy path and place in a browser url to view the the html report
     - Check your `token` and `token_bearer` are correct in case of any authorization error or failure
 - To run single test script: `npx mocha ./api_test/{script name}.js`
