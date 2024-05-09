@@ -10,6 +10,7 @@
 
 ## Pre-requisite
 - System must have node.js and npm package installed
+    - node version used is 20. It gives a token error if some lesser version are used
 - Pull the repo from github to a local system
 - Run: `npm install` to install all the packages needed
     - If the packages fail to install, install the following packages using npm
@@ -17,11 +18,13 @@
         - chai: `npm install --save-dev chai`
         - graphql-request: npm add graphql-request graphql
         - mochawesome: `npm install --save-dev mochawesome`
-- Add your `token` and `token_bearer` in the `auth_params.js` file
+        -  dotenv: `npm install dotenv --save`
+- Add your `token` and `bearer_token` in `.env` file
+    - Make a copy of `.env.example` and remove the `.example` to create `.env` file
+    - Add the `token` and `bearer_token`
 
 ## To run:
-- To run all test scripts: `npx mocha ./api_test/*.js`
+- To run all test scripts: `npm test`
     - This will generate a test report file: `mochawesome.html`
     - Copy path and place in a browser url to view the the html report
     - Check your `token` and `token_bearer` are correct in case of any authorization error or failure
-- To run single test script: `npx mocha ./api_test/{script name}.js`

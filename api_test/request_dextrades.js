@@ -22,27 +22,32 @@ describe('Dex Request - DexTrades', async()=> {
     })
 
     it('To verify the value of fungigle parameter is true', async()=> {
-      const result = await res.EVM.DEXTrades[0].Trade.Buy;
-      const fungible_value = result.Currency.Fungible;
-    //   console.log(res.EVM.DEXTrades);
+      const result = await res.EVM.DEXTrades;
+      const [ item_one ] = result;
+      const buy = item_one.Trade.Buy;
+      const { Currency: {Fungible} } = buy;
     
-      expect(fungible_value).eq(true);
+      expect(Fungible).eq(true);
     })
 
     it('To verify the value of fungigle parameter is not false', async()=> {
-      const result = await res.EVM.DEXTrades[0].Trade.Buy;
-      const fungible_value = result.Currency.Fungible;
+      const result = await res.EVM.DEXTrades;
+      const [ item_one ] = result;
+      const buy = item_one.Trade.Buy;
+      const { Currency: { Fungible } } = buy;
 
-      expect(fungible_value).not.eq(false);
+      expect(Fungible).not.eq(false);
     })
 
     it(`To verify the response payload has a ${cur} parameter`, async()=> {
-        const result = await res.EVM.DEXTrades[0].Trade.Buy;
+        const result = await res.EVM.DEXTrades;
+        const [ item_one ] = result;
+        const { Trade: { Buy }} = item_one;
 
-        expect(result).haveOwnProperty(cur);
+        expect(Buy).haveOwnProperty(cur);
     })
 
-    // resonse object should not be empty
+    // response object should not be empty
     it('To verify response object is not empty', async()=> {
         const result = await res.EVM.DEXTrades;
 
@@ -50,24 +55,29 @@ describe('Dex Request - DexTrades', async()=> {
     })
 
     it('To verify the property type of {amount} is a string', async()=> {
-        const result = await res.EVM.DEXTrades[0].Trade.Buy;
-        const amount = result.Amount;
+        const result = await res.EVM.DEXTrades;
+        const [ item_one ] = result;
+        const { Trade: { Buy: {Amount} }} = item_one;
 
-        expect(amount).to.be.a('string');
+        expect(Amount).to.be.a('string');
     })
 
     it('To verify the property type of {amount} is not an integer', async()=> {
-        const result = await res.EVM.DEXTrades[0].Trade.Buy;
-        const amount = result.Amount;
+        const result = await res.EVM.DEXTrades;
+        const [ item_one ] = result;
+        const { Trade: { Buy: {Amount} }} = item_one;
 
-        expect(amount).to.not.be.an('integer');
+        expect(Amount).to.not.be.an('integer');
     })
 
     it('To verify the property type of {fungible} is boolean', async()=> {
-        const result = await res.EVM.DEXTrades[0].Trade.Buy;
-        const fungible = result.Currency.Fungible;
+        const result = await res.EVM.DEXTrades;
+        const [ item_one ] = result;
+        const buy = item_one.Trade.Buy;
+        const { Currency: { Fungible } } = buy;
+        
 
-        expect(fungible).to.be.a('boolean');
+        expect(Fungible).to.be.a('boolean');
     })
 })
 

@@ -27,33 +27,38 @@ describe('DEX Request - DexTrade Tokens', async()=> {
     })
 
     it('To verify transaction status is true', async()=> {
-        const result = await res.EVM.DEXTradeByTokens[0];
-        const transaction_status = result.TransactionStatus.Success
-        // console.log(result);
+        const result = await res.EVM.DEXTradeByTokens;
+        const [ item_one ] = result;
+        const status = item_one.TransactionStatus.Success;
         
-        assert.strictEqual(true, transaction_status, 'Error: status not the same');
+        assert.strictEqual(true, status, 'Error: status not the same');
     })
 
     it('To verify transaction status is not false', async()=> {
-        const result = await res.EVM.DEXTradeByTokens[0];
-        const transaction_status = result.TransactionStatus.Success
+        const result = await res.EVM.DEXTradeByTokens;
+        const [ item_one ] = result;
+        const status = item_one.TransactionStatus.Success;
         
-        expect(transaction_status).not.eq(false);
+        expect(status).not.eq(false);
     })
 
     it(`To verify transaction properties ${cost}, ${gas} and ${gas_price} are present`, async()=> {
-        const result = await res.EVM.DEXTradeByTokens[0].Transaction;
+        const result = await res.EVM.DEXTradeByTokens;
+        const [ item_one ] = result;
+        const object_one = item_one.Transaction;
         
-        expect(result).haveOwnProperty(cost);
-        expect(result).haveOwnProperty(gas);
-        expect(result).haveOwnProperty(gas_price);
+        expect(object_one).haveOwnProperty(cost);
+        expect(object_one).haveOwnProperty(gas);
+        expect(object_one).haveOwnProperty(gas_price);
     })
 
     it(`To verify {DEXTradeByTokens} object has properties ${trans} and ${trans_status}`, async()=> {
-        const result = await res.EVM.DEXTradeByTokens[0];
+        // const result = await res.EVM.DEXTradeByTokens[0];
+        const result = await res.EVM.DEXTradeByTokens;
+        const [ item_one ] = result;
         
-        expect(result).haveOwnProperty(trans);
-        expect(result).haveOwnProperty(trans_status);
+        expect(item_one).haveOwnProperty(trans);
+        expect(item_one).haveOwnProperty(trans_status);
     })
 
     it('To verify {DEXTradeByTokens} object is an array of objects', async()=> {

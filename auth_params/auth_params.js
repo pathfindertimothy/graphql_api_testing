@@ -1,14 +1,10 @@
-// provide your token: remove the curly braces and provide token
-const token = '{provide token}';
 
-// provide your bearer_token: remove the curly braces and provide token
-const bearer_token = 'Bearer {provide bear_token}';
 
 const url = 'https://streaming.bitquery.io/graphql';
 const requestHeaders = {
     "Content-Type": "application/json",
-    'X-API-KEY': token,
-    'Authorization': bearer_token
+    'X-API-KEY': `${process.env.TOKEN}`,
+    'Authorization': `${process.env.BEARER_TOKEN}`
 }
 
 export { url, requestHeaders }

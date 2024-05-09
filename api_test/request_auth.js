@@ -7,6 +7,7 @@ describe('DEX Request - Error Handling', async()=> {
     const document = transfers_payload;
     let res;
     let auth_msg = 'Unauthorized';
+    let error_status = 200;
 
     const requestHeaders = {
         "Content-Type": "application/json",
@@ -22,13 +23,29 @@ describe('DEX Request - Error Handling', async()=> {
                 document, 
                 requestHeaders
             });
-        } catch (error) {
-            const error_msg = error.response;
-            const error_message = error_msg.error;
-            const status_value = error_msg.status;
+        } catch (err) {
+            const error_msg = err.response;
+            const { error, status } = error_msg;
 
-            expect(error_message).contain(auth_msg);
-            assert.equal(401, status_value);
+            expect(error).equal(auth_msg);
+            assert.equal(401, status);
+        }  
+    })
+
+    it(`To verify error status is not: ${error_status}`, async()=> {
+
+        try {
+            res = await request({
+                url, 
+                document, 
+                requestHeaders
+            });
+        } catch (err) {
+            const error_msg = err.response;
+            const { error, status } = error_msg;
+
+            expect(error).equal(auth_msg);
+            assert.notEqual(status, error_status);
         }  
     })
 

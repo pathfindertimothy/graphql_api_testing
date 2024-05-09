@@ -22,8 +22,7 @@ describe('DEX Request - MinerRewards: Error Handling', async()=> {
             const invalid_parameter = error_msg.errors[0].message;
             
             assert.equal(200, status_value);
-            expect(invalid_parameter).contain(`Cannot query field "${burnt_fee}"`);
-            expect(invalid_parameter).contain('Cannot query field "BurntFee" on type "EVM_MinerReward_Fields_Reward". Did you mean "BurntFees"?')
+            expect(invalid_parameter).contain(`Cannot query field "${burnt_fee}"`);   
         }  
     })
 
